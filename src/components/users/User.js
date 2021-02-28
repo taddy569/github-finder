@@ -16,6 +16,9 @@ const User = ({ match }) => {
     getUserRepos(match.params.login);
   }, []);
 
+  console.log("ABCCCCCCCCCCCCCCCCCCCC");
+  console.log(user);
+
   const {
     name,
     company,

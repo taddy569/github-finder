@@ -15,6 +15,12 @@ const Navbar = ({ icon, title }) => {
         <li>
           <Link to="/about">About</Link>
         </li>
+        <li>
+          <Link to="/test-context">Test Context</Link>
+        </li>
+        <li>
+          <Link to="/test-reducer">Test Reducer</Link>
+        </li>
       </ul>
     </nav>
   );

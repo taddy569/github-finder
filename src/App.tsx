@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
@@ -15,7 +15,7 @@ import AlertState from "./context/alert/AlertState";
 
 import "./App.css";
 
-const App = () => {
+const App: FC = () => {
   return (
     <GithubState>
       <AlertState>
@@ -26,7 +26,7 @@ const App = () => {
               <Alert />
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/about" render={About} />
+                <Route exact path="/about" component={About} />
                 <Route exact path="/user/:login" component={User} />
                 <Route exact path="/test-context" render={TestContext} />
                 <Route exact path="/test-reducer" render={TestReducer} />

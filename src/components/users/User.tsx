@@ -1,23 +1,19 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { FC, useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 
 import Spinner from "../layout/Spinner";
 import Repos from "../repos/Repos";
 import GithubContext from "../../context/github/githubContext";
+import { MatchType, ParamsType } from "./type";
 
-const User = ({ match }) => {
-  const { getUser, user, getUserRepos, repos, loading } = useContext(
-    GithubContext
-  );
+const User: FC<MatchType<ParamsType>> = ({ match }) => {
+  const { getUser, user, getUserRepos, repos, loading } =
+    useContext(GithubContext);
 
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
   }, []);
-
-  console.log("ABCCCCCCCCCCCCCCCCCCCC");
-  console.log(user);
 
   const {
     name,
@@ -103,7 +99,11 @@ const User = ({ match }) => {
         <div className="badge badge-light">Public Repos: {public_repos}</div>
         <div className="badge badge-dark">Public Gists: {public_gists}</div>
       </div>
-      <Repos repos={repos} />
+      {/* tradition way */}
+      {/* <Repos repos={repos} /> */}
+
+      {/* props via context */}
+      <Repos />
     </>
   );
 };

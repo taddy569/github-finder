@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-export const About = () => {
+export const About: FC = () => {
   return (
     <>
       <h1>About This App</h1>

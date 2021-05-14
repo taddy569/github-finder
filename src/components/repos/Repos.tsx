@@ -1,18 +1,15 @@
-import React, { useContext } from "react";
+import React, { FC, useContext } from "react";
 
 import GithubContext from "../../context/github/githubContext";
-
 import RepoItem from "./RepoItem";
+import { RepoType } from "./type";
 
-const Repos = () => {
+const Repos: FC = () => {
   const githubContext = useContext(GithubContext);
 
   const { repos } = githubContext;
 
-  console.log("AAAAAAAAAAAAAAAAAAAAAA");
-  console.log(repos);
-
-  return repos.map((repo) => <RepoItem repo={repo} key={repo.id} />);
+  return repos.map((repo: RepoType) => <RepoItem repo={repo} key={repo.id} />);
 };
 
 export default Repos;

@@ -1,19 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, FC, ChangeEvent, FormEvent, ChangeEventHandler, FormEventHandler, } from "react";
 
 import GithubContext from "../../context/github/githubContext";
 import AlertContext from "../../context/alert/alertContext";
 
-const Search = ({ setAlert }) => {
+const Search: FC = () => {
   const githubContext = useContext(GithubContext);
   const alertContext = useContext(AlertContext);
 
   const [text, setText] = useState("");
 
-  const onChange = (e) => {
+  const onChange: ChangeEventHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit: FormEventHandler = (e: FormEvent) => {
     e.preventDefault();
     if (text === "") {
       alertContext.setAlert("Please enter something", "light");
